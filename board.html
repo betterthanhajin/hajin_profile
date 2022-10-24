@@ -57,10 +57,24 @@ class Element{
     }
 }
 
-class session{
-    constructor(){
-        
-    }
+class savesession{
+    constructor(no, title, desc){
+        this.key = ["no","title","desc"];
+        this.no = no;
+        this.title = title;
+        this.desc = desc;
+        this.value = [this.no,this.title,this.desc];
+    }    
+    // push(no,title,desc) {
+    //     let arrValue = [];
+    //     let key = ["no","title","desc"];
+    //     for(let i = 0; i < key.length; i += 1){
+    //         arrValue.push(key[0],this.no);
+    //         arrValue.push(key[1],this.title);
+    //         arrValue.push(key[2],this.desc);
+    //     }
+    //     // console.log("ASFD", arrValue);
+    // }
 }
 function keyEvent() {
     const title = document.getElementById("title").value;
@@ -75,7 +89,8 @@ function keyEvent() {
 //     document.getElementById("result").innerText = title;
 // }
 let number = 0;
-let tr = null;
+
+let session = [];
 
 function register(){
     const title = document.getElementById("title").value;
@@ -85,6 +100,16 @@ function register(){
     // alert(index);
     number++;
     let tr = table[1].insertRow();
-    tr.append(number + title + desc); 
+    
+
+    //session
+    session = new savesession(number, title, desc);
+    //session.push(number, title, desc);
+    for(let i = 0; i < session.key.length; i++) {
+        let result = window.localStorage.setItem(session.key[i], session.value[i]);
+    }
+    tr.append(result); 
+    alert(result);
+    
 }
 </script>
