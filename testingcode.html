@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+
+<body>
+    <table style="margin:2% auto;">
+        <tr>
+            <td>No.</td>
+            <td>title</td>
+            <td>content</td>
+        </tr>
+    </table>
+    <table style="margin:2% auto;">
+    </table>
+    <div style="margin:3% auto; width:30vw; height:20vh;">
+        <label>title</label>
+        <input type="text" id="title" value="">
+        <label>content</label>
+        <input type="text" id="desc" style="height:50px;" value="">
+        <button onclick="register()">Enter</button>
+    </div>
+</body>
+
+</html>
+
+<script>
+
+let no = 0;
+let index = 0;
+let rowindex = 0;
+let row = null;
+let table = document.getElementsByTagName('table');
+let store = null;
+var desc = null;
+let row2 = null;
+let count = 0;
+let arr = [];
+let numbers = 0;
+let likeNumbers = 0;//좋아요개수
+let likeNumbers2 = 0;//좋아요개수
+let flag = false;
+//let a = 0;
+let b = 0;
+//let parentsIndex = 0;
+
+function register() {
+    var title = document.getElementById('title').value;
+    desc =  document.getElementById('desc').value;
+    if(row === null) {no = 0;}
+    ++no;//부모게시글의 인덱스
+    //++parentsIndex;
+    if(row2 != null) {
+            row = table[1].insertRow(numbers).innerHTML = "<td>" + no +"</td>" + "<td>" + title +"</td>"
+                                            +"<td>" + desc +"</td>"
+                                            + "<button onclick='remove("+ rowindex +")'>삭제</button>"
+                                            + "<button onclick='reply("+ no +")'>reply</button>"
+                                            + "<button onclick='like("+ no +")'>좋아요</button>";
+                                            numbers++;
+
+    }else{
+        row = table[1].insertRow(no - 1).innerHTML = "<td>" + no +"</td>" + "<td>" + title +"</td>"
+                                            +"<td>" + desc +"</td>"
+                                            + "<button onclick='remove("+ rowindex +")'>삭제</button>"
+                                            + "<button onclick='reply("+ no + ")'>reply</button>"
+                                            + "<button onclick='like("+ no +")'>좋아요</button>";
+                                            numbers++;
+
+
+    store = window.localStorage.setItem("desc", desc);
+
+    }
+
+
+};
+
+
+let item = window.localStorage.getItem("desc");
+console.log("itme", item);
+
+function remove(rowindex) {
+    //alert(rowindex);
+    let table = document.getElementsByTagName('table');
+    table[1].deleteRow(rowindex);
+    if(row2 != null) {
+       // alert();
+        for(let i = 0 ;  i < count; i++) {
+            //alert(count);
+            table[1].deleteRow(rowindex);
+        }
+    }
+};
+
+function reply() {
+    alert(no);
+    //alert(count);
+    let content = prompt();
+    if(count >= 1) {
+        alert("rwadsf");
+        row2 = table[1].insertRow(no + 1);
+        row2.innerHTML = "<tr><td></td><td></td><td></td>" + content +"</tr>" ;
+        row2.style.backgroundColor  = "yellow";
+        numbers++;
+        count++;//댓글수
+
+    } else {
+        alert("ok");
+        row2 = table[1].insertRow(no);
+        row2.innerHTML = "<tr><td></td><td></td><td></td>" + content +"</tr>" ;
+        row2.style.backgroundColor  = "yellow";
+        numbers++;
+        count++;//댓글수
+    }
+
+};
+
+
+let likeArr = [];
+let i = 0;
+
+function like(no) {
+    alert(no);
+    likeArr.push(no);
+
+    if(no === likeArr[0]){
+        alert("ARR2asd");
+        likeNumbers++;
+        i++;
+        alert("좋아요" + "++" + likeNumbers);
+        likeArr = [];
+    }else {
+        alert("ARR");
+        likeNumbers2 = likeNumbers2 + 1;
+        // alert(likeNumbers);
+        alert("좋아요222" + "++" + likeNumbers2);
+        likeArr = [];
+    }
+};
+</script>
