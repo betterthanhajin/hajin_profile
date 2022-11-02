@@ -27,6 +27,8 @@
                 <li style="cursor:pointer;">MY SKIILS</li>
                 <li style="cursor:pointer;">CAREER</li>
                 <li style="cursor:pointer;">PROJECTS</li>
+            </ul>
+            <ul class="til" style="font-size:85px; text-align:center;">
                 <li style="cursor:pointer;"><a href="learn.html">TODAY I LEARNED</a></li>
                 <li style="cursor:pointer;"><a href="board.html">COMMENT</a></li>
                 <li style="cursor:pointer;"><a href="testingcode.html">TESTING CODE</a></li>
@@ -37,12 +39,6 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <title>Document</title>
             </head>
-
-            <body>
-
-            </body>
-
-            </html>
         </div>
     </nav>
     <ul class="pointWrap">
@@ -540,6 +536,7 @@
                 if (scroll > section[i].offsetTop - window.outerHeight / 1.5 && scroll < section[i].offsetTop - window.outerHeight / 1.5 + section[i].offsetHeight) {
                     pageNum = i;
                     trigger.checked = false;
+                    sidebar[0].style.display = "block";
                     break;
                 }
             }
@@ -615,6 +612,7 @@
 
 @media screen and (max-width:767.98px) {
 /* 스마트폰 가로 */
+
 }
 @media screen and (max-width:991.98px) {
     /* 타블렛 */
@@ -1117,6 +1115,15 @@
         left: -1920px;
         transition: 0.3s;
         z-index: 999 !important;
+        display:flex;
+    }
+
+    .sidebarPoint {
+        justify-content: left;
+    }
+
+    .til {
+        justify-content: right;
     }
 
     /* input[id=trigger]가 체크되었을 때 사이드바가 나오는 형제 인접자 */
