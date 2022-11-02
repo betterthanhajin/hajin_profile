@@ -155,14 +155,14 @@
                 LEE HA JIN</h2>
         </div>
         <div class="group">
-            <div class="slide">
+            <div class="slide" id="slide">
                 <div class="variety item"><span>다양성</span></div>
                 <div class="passion item"><span>열정</span></div>
                 <div class="creative item"><span>창의성</span></div>
                 <div class="passion item"><span>커뮤니케이션능력</span></div>
                 <div class="variety item"><span>호기심</span></div>
                 <div class="passion item"><span>문제해결능력</span></div>
-            </div>
+            </div> 
         </div>
         <div class="buttonWrap">
             <button type="button">PREV</button>
@@ -564,18 +564,18 @@
 
         prev_button = document.querySelectorAll("button")[0];
         next_button = document.querySelectorAll("button")[1];
-        items = document.querySelector(".slide");
+        let slide = document.getElementById("slide");
+        let slidelen = document.querySelectorAll(".item");
         const slides = document.querySelector('.group'); //전체 슬라이드 컨테이너
         let currentIdx = 0; //현재 슬라이드 index
-        const slideCount = items.length; // 슬라이드 개수
+        const slideCount = slidelen.length/2; // 슬라이드 개수
         const slideWidth = 650 + 'px'; //한개의 슬라이드 넓이
         const slideMargin = 15 + 'px'; //슬라이드간의 margin 값
 
 
         // slides.style.width = (slideWidth + slideMargin) * slideCount + 'px';
-
         function moveSlide(num) {
-            items.style.left = -num * 650 + 'px';
+            slide.style.left = -num * 650 + 'px';
             currentIdx = num;
         }
 
@@ -968,7 +968,6 @@
 
     .slide {
         position: absolute;
-        width: 2000px;
         overflow: hidden;
         transition: 0.5s ease-in-out;
     }
@@ -1193,8 +1192,8 @@
     }
 
     nav {
-        width: 100%;
-        height: 60px;
+        width:100%;
+        height:50px;
         background-color: rgb(234, 181, 117);
     }
 
