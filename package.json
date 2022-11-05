@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "dotenv": "^16.0.3",
+    "mssql": "^9.0.1",
     "pg": "^8.8.0"
   }
 }
