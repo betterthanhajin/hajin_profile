@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>HAJIN</title>
     <script type="text/javascript" src=" https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
-    <scrit src="./express/app.js"></scrit>
 </head>
 <body>
     <nav>
@@ -179,13 +178,13 @@
         <div class="first">
             <div class="mainline"></div>
             <ul class="point">
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+                <li><button class="points"></button></li>
+                <li><button class="points"></button></li>
+                <li><button class="points"></button></li>
+                <li><button class="points"></button></li>
+                <li><button class="points"></button></li>
+                <li><button class="points"></button></li>
+                <li><button class="points"></button></li>
             </ul>
             <ul class="pointtext">
                 <li><span>인터넷</span></li>
@@ -398,7 +397,7 @@
             <img src="./image/main.png">
         </div>
     </section>
-    <footer style="position:fixed; bottom:0;">LEE HA JIN #010 5818 3851</footer>
+    <footer style="position:fixed; bottom:0;">LEE HA JIN</footer>
 </body>
 
 </html>
@@ -1157,11 +1156,20 @@
 
     .point>li {
         display: inline-block;
-        width: 12px;
+        /* width: 12px;
         height: 12px;
         border-radius: 50%;
         margin-right: 65px;
-        background-color: #d9913f;
+        background-color: #d9913f; */
+    }
+    
+    .points  {
+        cursor: pointer;
+        width:12px;
+        height:12px;
+        border-radius: 50%;
+        background: #dcaa71;
+        border: none;
     }
 
     .loadMap {

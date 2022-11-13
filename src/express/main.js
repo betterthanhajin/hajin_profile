@@ -1,10 +1,10 @@
 const { sql, pool } = require('./db');
-
+console.log("sql", sql);
 module.exports = function(app)
 {
     app.get('/', async (req,res) => {
         try{
-        const pool = await pool;
+        const pool = pool;
         const result = "aaa";
         res.send(result);
         } catch(err) {
