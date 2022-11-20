@@ -4,9 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>TIL</title>
 </head>
 <body>
-afdsfasd  
+    <section>
+        <h1>Binary Search</h1>
+        <div>
+            const array
+            = [1,1,5,124,400,599,1004,2876,8712];
+            
+            function binarySearch(array, findValue) {
+            let left = 0;
+            let right = array.length - 1;
+            let mid = Math.floor((left + right) / 2);
+            while(left < right) { if(array[mid]===findValue) { return mid; } if(array[mid] < findValue) { left=mid + 1; }else{
+                right=mid - 1; } mid=Math.floor((left + right)/ 2); } return -1; }
+        </div>
+    </section>
 </body>
 </html>
+<style>
+body,html {
+    padding:0;
+    margin:0;
+}    
+
+section {
+    position: absolute;
+    left:0;
+    right:0;
+    top:0;
+}
+
+</style>
